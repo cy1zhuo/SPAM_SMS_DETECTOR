@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SMS Spam Detector</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+    <div id="phishingOverlay" class="phishing-overlay"></div>
+    <main class="container">
+      <div class="card">
+        <div class="card-header">
+          <h1>SMS Spam Detector</h1>
+          <div class="shortcuts">
+            <span title="Check message"><i class="fas fa-keyboard"></i> Ctrl + Enter</span>
+          </div>
+        </div>
+        
+        <p class="lead">Enter or paste an SMS message below to check if it's spam.</p>
+
+        <div class="textarea-container">
+          <textarea id="smsText" placeholder="Type or paste SMS message here..." rows="6"></textarea>
+          <div class="char-counter" id="charCounter">0 characters</div>
+        </div>
+
+        <div class="controls">
+          <div class="main-controls">
+            <button id="checkBtn" class="primary"><i class="fas fa-shield-alt"></i> Check Message</button>
+            <button id="clearBtn" class="secondary"><i class="fas fa-times"></i> Clear</button>
+          </div>
+          <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>Analyzing message...</span>
+          </div>
+        </div>
+
+        <div id="result" class="result hidden">
+          <div class="result-header">
+            <div id="label" class="label"></div>
+            <div id="prob" class="prob"></div>
+          </div>
+          <div id="explain" class="explain"></div>
+          <div class="keywords hidden" id="keywords">
+            <h4>Detected Keywords:</h4>
+            <div class="keyword-list" id="keywordList"></div>
+          </div>
+        </div>
+
+        <div class="controls extra">
+          <a href="history.html" class="history-link">
+            <i class="fas fa-history"></i> View History
+          </a>
+        </div>
+
+        <footer class="foot">
+          <div class="api-info">
+            <i class="fas fa-code"></i> API: POST /predict
+          </div>
+          <div class="model-info" id="modelInfo">
+            <i class="fas fa-brain"></i> Using ML Model
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

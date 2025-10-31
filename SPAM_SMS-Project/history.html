@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prediction History — SMS Spam Detector</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+    <div id="phishingOverlay" class="phishing-overlay"></div>
+    <main class="container">
+      <div class="card">
+        <div class="card-header">
+          <h1>Prediction History</h1>
+          <div class="shortcuts">
+            <a href="index.html" class="small"><i class="fas fa-arrow-left"></i> Back</a>
+          </div>
+        </div>
+
+        <p class="lead">Recent predictions are shown below. You can filter, search, or clear history.</p>
+
+        <div class="history-controls" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+          <div style="display:flex;gap:8px;align-items:center">
+            <button id="filterAll" class="small">All</button>
+            <button id="filterSpam" class="small">Spam</button>
+            <button id="filterHam" class="small">Not Spam</button>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <input id="searchInput" placeholder="Search messages..." style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
+            <button id="clearHistoryBtn" class="small">Clear History</button>
+          </div>
+        </div>
+
+        <div class="history">
+          <div class="history-header">
+            <div class="stats" id="historyStats">Loading…</div>
+            <div class="actions">
+              <button id="downloadBtn" class="small">Download</button>
+            </div>
+          </div>
+
+          <ul id="historyList" class="history-list" aria-live="polite"></ul>
+        </div>
+
+        <footer class="foot">
+          <div class="muted">The app stores up to the last 200 items on disk (backend).</div>
+        </footer>
+      </div>
+    </main>
+
+    <script src="js/history.js"></script>
+  </body>
+</html>
